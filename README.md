@@ -3,6 +3,14 @@ TD3 - Deep reinforcement learning algorithm implementation in TensorFlow2
 
 Projekt przedstawia implementacje algorytmu uczenia ze wzmocnieniem TD3 (RL - reinforcement learning) przy pomocy środowiska **gym**. Jest on rozwinięciem algorytmu DDPG i tak jak on został przeznaczony do zastosować w środowiskach ciągłych.
 
+Testy algorytmu zostały przeprowadzone w środowisku **Pendulum-v0** oraz **BipedalWalker-v3**. Procesy uczenia zostały przedstawione na poniższych przebiegach:
+
+<p align="center">
+  <img src="https://github.com/BartlomiejGasyna/TD3/blob/master/results/pendulum_training.png" alt="Image 1" width="49%">
+  <img src="https://github.com/BartlomiejGasyna/TD3/blob/master/results/bipedal_training.png" alt="Image 2" width="49%">
+</p>
+
+
 Kod został przygotowany na podstawie artykułu naukowego **Addressing Function Approximation Error in Actor-Critic Methods**, napisanego przez **Scott Fujimoto, Herke van Hoof, David Meger**. https://arxiv.org/pdf/1802.09477.pdf
 
 Przedstawia on algorytm Q-learning w uczeniu ze wzmocnieniem, który służy do uczenia agenta podejmowania optymalnych decyzji w dynamicznym środowisku.
@@ -34,4 +42,4 @@ Działanie algorytmu TD3 przedstawia poniższy pseudokod:
 <img src="https://github.com/BartlomiejGasyna/TD3/assets/65308689/8be96ba9-ab49-45b4-994b-2cdbc61c5cbb" width=40% height=40%  >
 </p>
 
-Testy algorytmu zostały przeprowadzone w środowisku **BipedalWalker-v3** oraz **Pendulum-v0**. Procesy uczenia zostały przedstawione na poniższych przebiegach:
+
