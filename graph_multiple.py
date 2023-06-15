@@ -3,9 +3,8 @@ import numpy as np
 import os
 
 
-
 DIR = 'results'
-MODEL = 'pendulum'
+MODEL = 'bipedal'
 
 N_ITER = 1000
 
@@ -28,34 +27,33 @@ for file in os.listdir(os.path.join(DIR, MODEL)):
                 break
     lines.append(data)
 
-print(lines)
-
 rewards = [line['y_mean'] for line in lines]
 
-# print(rewards)
-min_values = np.min(rewards, axis=0)
-max_values = np.max(rewards, axis=0)
+
+min_values  = np.min(rewards, axis=0)
+max_values  = np.max(rewards, axis=0)
 
 mean_values = np.mean(rewards, axis=0)
 
-episodes = range(len(lines[0]['y_mean']))
+episodes    = range(len(lines[0]['y_mean']))
 
 # Plotting
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(20, 12))
+plt.rcParams.update({'font.size': 28})
+plt.xlim(0, N_ITER - 1)
 
 # Plot filled regions for each model
-plt.plot(episodes, mean_values, color='blue', label='Mean reward')
-
-
-plt.fill_between(episodes, min_values, max_values, alpha=0.3, color='blue')
+plt.plot(episodes, mean_values, color='blue', linewidth=4, label='mean reward')
+plt.fill_between(episodes, min_values, max_values, alpha=0.3, color='blue', label='min/max reward')
 
 
 # Customize the plot
+
+
 plt.xlabel('Episodes')
 plt.ylabel('Reward')
 plt.title(f'Learning process for {MODEL}')
 plt.legend(loc='lower right')
 plt.grid(color='gray', linestyle='--', linewidth=0.5)
-
 # Display the plot
 plt.show()

@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 # Read the input file
 data = []
-with open('results/pendulum3_results.txt', 'r') as file:
+with open('results/pendulum/pendulum1.txt', 'r') as file:
     for line in file:
         line = line.strip().split(',')
         x = int(line[0])
