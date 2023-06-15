@@ -23,6 +23,7 @@ Poprzez iteracyjną optymalizację sieci neuronowych, TD3 stara się znaleźć o
 
 Działanie algorytmu TD3 przedstawia poniższy pseudokod:
 
-![image](https://github.com/BartlomiejGasyna/TD3/assets/65308689/8be96ba9-ab49-45b4-994b-2cdbc61c5cbb)
+<img src="https://github.com/BartlomiejGasyna/TD3/assets/65308689/8be96ba9-ab49-45b4-994b-2cdbc61c5cbb" width=40% height=40%>
+)
 
 Testy algorytmu zostały przeprowadzone w środowisku **BipedalWalker-v3** oraz **Pendulum-v0**. Procesy uczenia zostały przedstawione na poniższych przebiegach:
