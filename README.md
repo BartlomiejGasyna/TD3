@@ -1,4 +1,4 @@
-# TD3
+# Twin Delayed DDPG (Deep Deterministic Policy Gradient)
 TD3 - Deep reinforcement learning algorithm implementation in TensorFlow2
 
 Projekt przedstawia implementacje algorytmu uczenia ze wzmocnieniem TD3 (RL - reinforcement learning) przy pomocy środowiska **gym**. Jest on rozwinięciem algorytmu DDPG i tak jak on został przeznaczony do zastosować w środowiskach ciągłych.
@@ -21,9 +21,17 @@ Aktualizacje polityki (parametrów aktora) są opóźniane, aby zmniejszyć kore
 Algorytm TD3 wykorzystuje techniki gradientu prostego (stochastycznego) do aktualizacji wag sieci aktora i krytyków.
 Poprzez iteracyjną optymalizację sieci neuronowych, TD3 stara się znaleźć optymalne parametry polityki agenta, które minimalizują funkcję kosztu i maksymalizują zbierane nagrody.
 
-Działanie algorytmu TD3 przedstawia poniższy pseudokod:
+Mimo że DDPG czasem może osiągać doskonałe wyniki, często jest podatny na zmiany w hiperparametrach i inne rodzaje strojenia. Powszechnym błędem DDPG jest to, że nauczona funkcja Q zaczyna dramatycznie przeszacowywać wartości Q, co prowadzi do złamania polityki, ponieważ wykorzystuje błędy w funkcji Q. Twin Delayed DDPG (TD3) to algorytm, który rozwiązuje ten problem, wprowadzając trzy istotne usprawnienia:
 
-<img src="https://github.com/BartlomiejGasyna/TD3/assets/65308689/8be96ba9-ab49-45b4-994b-2cdbc61c5cbb" width=40% height=40%>
-)
+**1** : Ograniczone podwójne uczenie Q. TD3 uczy dwóch funkcji Q zamiast jednej (stąd "twin") i używa mniejszej z dwóch wartości Q do tworzenia celów w funkcjach straty błędu Bellmana.
+
+**2** : "Opóźnione" aktualizacje polityki. TD3 aktualizuje politykę (i sieci docelowe) rzadziej niż funkcję Q. W artykule zaleca się jedno aktualizowanie polityki dla dwóch aktualizacji funkcji Q.
+
+**3** : Wygładzanie polityki docelowej. TD3 dodaje szum do docelowej akcji, aby utrudnić polityce wykorzystywanie błędów w funkcji Q przez wygładzanie Q podczas zmian w akcji.
+
+Działanie algorytmu TD3 przedstawia poniższy pseudokod:
+<p align="center">
+<img src="https://github.com/BartlomiejGasyna/TD3/assets/65308689/8be96ba9-ab49-45b4-994b-2cdbc61c5cbb" width=40% height=40%  >
+</p>
 
 Testy algorytmu zostały przeprowadzone w środowisku **BipedalWalker-v3** oraz **Pendulum-v0**. Procesy uczenia zostały przedstawione na poniższych przebiegach:
